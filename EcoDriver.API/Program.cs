@@ -4,7 +4,9 @@ using EcoDriver.API.Loyalty.Persistence.Repositories;
 using EcoDriver.API.Loyalty.Services;
 using EcoDriver.API.Shared.Domain.Repositories;
 using EcoDriver.API.Shared.Persistence.Context;
+using EcoDriver.API.Shared.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -25,7 +27,7 @@ builder.Services.AddDbContext<AppDbContext>(
 
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-builder.Services.AddScoped<IUnitOfWork, IUnitOfWork>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IRewardRepository, RewardRepository>();
 builder.Services.AddScoped<IRewardService, RewardService>();
@@ -42,17 +44,38 @@ builder.Services.AddSwaggerGen(options =>
         Version = "v1",
         Title = "EcoDriver.API.Rewards",
         Description = "EcoDriver.API.Rewards",
-        
+        Contact = new OpenApiContact
+        {
+            Name = "Andy Jack Del Aguila Villanueva",
+            Email = "u20201a963@upc.edu.pe",
+            Url = new Uri("https://www.example.com")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "MIT",
+            Url = new Uri("https://opensource.org/licenses/MIT")
+        }
     });
 });
 
 var app = builder.Build();
 
+
+using (var scope = app.Services.CreateScope()) 
+using (var context = scope.ServiceProvider.GetService<AppDbContext>())
+{
+    context.Database.EnsureCreated();
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("v1/swagger.json","EcoDriver.API.Rewards");
+        options.RoutePrefix = "swagger";
+    });
 }
 
 app.UseHttpsRedirection();
