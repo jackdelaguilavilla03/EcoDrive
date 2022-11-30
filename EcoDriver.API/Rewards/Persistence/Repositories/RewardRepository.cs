@@ -45,4 +45,9 @@ public class RewardRepository : BaseRepository,IRewardRepository
     {
         return await _Context.Rewards.FirstOrDefaultAsync(r => r.Name == name);
     }
+    
+    public async Task<Reward> FindByFleetIdAsync(int fleetId)
+    {
+        return await _Context.Rewards.FirstOrDefaultAsync(r => r.Fleetid == fleetId);
+    }
 }

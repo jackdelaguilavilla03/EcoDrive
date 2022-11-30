@@ -9,4 +9,6 @@ public interface IRewardService
     Task<RewardResponse> SaveAsync(Reward reward);
     Task<RewardResponse> UpdateAsync(int id, Reward reward);
     Task<RewardResponse> DeleteAsync(int id);
+    Task<RewardResponse> SaveRewardFromFleetIdAsync(int fleetId, Reward reward);
+    Task<IEnumerable<Reward>> ListByScoreMajorThanAsync(int score);
 }

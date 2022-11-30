@@ -95,4 +95,37 @@ public class RewardService : IRewardService
             return new RewardResponse($"An error occurred when deleting the reward: {ex.Message}");
         }
     }
+
+    public async Task<RewardResponse> SaveRewardFromFleetIdAsync(int fleetId, Reward reward)
+    {
+        var existingReward = await _rewardRepository.FindByNameAsync(reward.Name);
+
+        if (existingReward != null)
+        {
+            return new RewardResponse("Reward name already exists.");
+        }
+
+        if (reward.Score <= 0)
+        {
+            return new RewardResponse("Score must be greater than zero.");
+        }
+        
+
+        try
+        {
+            await _rewardRepository.AddAsync(reward);
+            await _unitOfWork.CompleteAsync();
+
+            return new RewardResponse(reward);
+        }
+        catch (Exception ex)
+        {
+            return new RewardResponse($"An error occurred when saving the reward: {ex.Message}");
+        }
+    }
+
+    public async Task<IEnumerable<Reward>> ListByScoreMajorThanAsync(int score)
+    {
+        return await  _rewardRepository.FindByMajorScoreAsync(score);
+    }
 }
