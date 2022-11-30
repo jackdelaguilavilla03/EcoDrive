@@ -26,6 +26,12 @@ public class FleetsRewardsController : ControllerBase
     
     // Register a new reward with the fleetid from the route
     [HttpPost]
+    [SwaggerOperation(
+        Summary = "Register a new reward with the fleetid from the route",
+        Description = "Register a new reward with the fleetid from the route",
+        OperationId = "RegisterRewardFromFleet",
+        Tags = new[] { "Rewards" }
+    )]
     public async Task<IActionResult> PostAsync([FromRoute] int fleetId, [FromBody] SaveRewardResource rewardRequest)
     {
         if (!ModelState.IsValid)

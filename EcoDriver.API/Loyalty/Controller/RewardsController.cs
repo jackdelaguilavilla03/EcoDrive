@@ -1,14 +1,18 @@
-﻿using AutoMapper;
+﻿using System.Net.Mime;
+using AutoMapper;
 using EcoDriver.API.Loyalty.Domain.Models;
 using EcoDriver.API.Loyalty.Domain.Services;
 using EcoDriver.API.Loyalty.Resources;
 using EcoDriver.API.Shared.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace EcoDriver.API.Loyalty.Controller;
 
 [ApiController]
 [Route("api/[controller]")]
+[Produces(MediaTypeNames.Application.Json)]
+[SwaggerTag("Create, read, update, and delete operations for loyalty programs.")]
 public class RewardsController : ControllerBase
 {
     private readonly IRewardService _rewardService;
@@ -21,6 +25,7 @@ public class RewardsController : ControllerBase
     }
     
     [HttpGet]
+    [ProducesResponseType(typeof(IEnumerable<RewardResource>),200)]
     public async Task<IEnumerable<RewardResource>> GetAllAsync()
     {
         var rewards = await _rewardService.ListAsync();
@@ -29,6 +34,9 @@ public class RewardsController : ControllerBase
     }
     
     [HttpPost]
+    [ProducesResponseType(typeof(RewardResource), 201)]
+    [ProducesResponseType(typeof(List<string>), 400)]
+    [ProducesResponseType(500)]
     public async Task<IActionResult> PostAsync([FromBody] SaveRewardResource resource)
     {
         if (!ModelState.IsValid)

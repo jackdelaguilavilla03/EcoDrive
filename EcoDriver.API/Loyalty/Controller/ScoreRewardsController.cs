@@ -4,6 +4,7 @@ using EcoDriver.API.Loyalty.Domain.Models;
 using EcoDriver.API.Loyalty.Domain.Services;
 using EcoDriver.API.Loyalty.Resources;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace EcoDriver.API.Loyalty.Controller;
 
@@ -22,6 +23,12 @@ public class ScoreRewardsController : ControllerBase
     }
     
     [HttpGet]
+    [SwaggerOperation(
+        Summary = "Returns scores greater than or equal to the value from request.",
+        Description = "Returns rewards that have a score equal to or greater than the value entered by the link.",
+        OperationId = "GetHighScore",
+        Tags = new[] { "Rewards" }
+    )]
     public async Task<IEnumerable<RewardResource>> GetByScoreMajorThanAsync(int score)
     {
         var rewards = await _rewardService.ListByScoreMajorThanAsync(score);
