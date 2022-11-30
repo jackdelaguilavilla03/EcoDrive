@@ -1,6 +1,6 @@
-﻿using EcoDriver.API.Rewards.Domain.Models;
+﻿using EcoDriver.API.Loyalty.Domain.Models;
 
-namespace EcoDriver.API.Rewards.Domain.Repositories;
+namespace EcoDriver.API.Loyalty.Domain.Repositories;
 
 public interface IRewardRepository
 {

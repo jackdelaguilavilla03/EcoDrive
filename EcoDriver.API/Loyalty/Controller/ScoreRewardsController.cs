@@ -1,11 +1,11 @@
 ﻿using System.Net.Mime;
 using AutoMapper;
-using EcoDriver.API.Rewards.Domain.Models;
-using EcoDriver.API.Rewards.Domain.Services;
-using EcoDriver.API.Rewards.Resources;
+using EcoDriver.API.Loyalty.Domain.Models;
+using EcoDriver.API.Loyalty.Domain.Services;
+using EcoDriver.API.Loyalty.Resources;
 using Microsoft.AspNetCore.Mvc;
 
-namespace EcoDriver.API.Rewards.Controller;
+namespace EcoDriver.API.Loyalty.Controller;
 
 [ApiController]
 [Route("api/v1/scores/{score}/reward")]

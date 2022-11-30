@@ -1,10 +1,10 @@
-﻿using EcoDriver.API.Rewards.Domain.Models;
-using EcoDriver.API.Rewards.Domain.Repositories;
-using EcoDriver.API.Rewards.Domain.Services;
-using EcoDriver.API.Rewards.Domain.Services.Communication;
+﻿using EcoDriver.API.Loyalty.Domain.Models;
+using EcoDriver.API.Loyalty.Domain.Repositories;
+using EcoDriver.API.Loyalty.Domain.Services;
+using EcoDriver.API.Loyalty.Domain.Services.Communication;
 using EcoDriver.API.Shared.Domain.Repositories;
 
-namespace EcoDriver.API.Rewards.Services;
+namespace EcoDriver.API.Loyalty.Services;
 
 public class RewardService : IRewardService
 {

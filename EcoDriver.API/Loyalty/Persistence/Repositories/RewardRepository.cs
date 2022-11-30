@@ -1,10 +1,10 @@
-﻿using EcoDriver.API.Rewards.Domain.Models;
-using EcoDriver.API.Rewards.Domain.Repositories;
+﻿using EcoDriver.API.Loyalty.Domain.Models;
+using EcoDriver.API.Loyalty.Domain.Repositories;
 using EcoDriver.API.Shared.Persistence.Context;
 using EcoDriver.API.Shared.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace EcoDriver.API.Rewards.Persistence.Repositories;
+namespace EcoDriver.API.Loyalty.Persistence.Repositories;
 
 public class RewardRepository : BaseRepository,IRewardRepository
 {

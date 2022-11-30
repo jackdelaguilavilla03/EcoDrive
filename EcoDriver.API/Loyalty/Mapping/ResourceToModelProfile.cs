@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using EcoDriver.API.Rewards.Domain.Models;
-using EcoDriver.API.Rewards.Resources;
+using EcoDriver.API.Loyalty.Domain.Models;
+using EcoDriver.API.Loyalty.Resources;
 
-namespace EcoDriver.API.Rewards.Mapping;
+namespace EcoDriver.API.Loyalty.Mapping;
 
 public class ResourceToModelProfile : Profile
 {

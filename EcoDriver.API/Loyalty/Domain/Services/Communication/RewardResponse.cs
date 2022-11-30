@@ -1,7 +1,7 @@
-﻿using EcoDriver.API.Rewards.Domain.Models;
+﻿using EcoDriver.API.Loyalty.Domain.Models;
 using EcoDriver.API.Shared.Services.Communication;
 
-namespace EcoDriver.API.Rewards.Domain.Services.Communication;
+namespace EcoDriver.API.Loyalty.Domain.Services.Communication;
 
 public class RewardResponse : BaseResponse<Reward>
 {

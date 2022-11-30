@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EcoDriver.API.Rewards.Resources;
+namespace EcoDriver.API.Loyalty.Resources;
 
 public class SaveRewardResource
 {

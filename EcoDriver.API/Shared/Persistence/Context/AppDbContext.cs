@@ -1,4 +1,4 @@
-﻿using EcoDriver.API.Rewards.Domain.Models;
+﻿using EcoDriver.API.Loyalty.Domain.Models;
 using EcoDriver.API.Shared.Extensions;
 using Microsoft.EntityFrameworkCore;
 

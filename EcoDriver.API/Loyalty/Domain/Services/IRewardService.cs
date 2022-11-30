@@ -1,7 +1,7 @@
-﻿using EcoDriver.API.Rewards.Domain.Models;
-using EcoDriver.API.Rewards.Domain.Services.Communication;
+﻿using EcoDriver.API.Loyalty.Domain.Models;
+using EcoDriver.API.Loyalty.Domain.Services.Communication;
 
-namespace EcoDriver.API.Rewards.Domain.Services;
+namespace EcoDriver.API.Loyalty.Domain.Services;
 
 public interface IRewardService
 {

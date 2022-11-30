@@ -1,4 +1,4 @@
-﻿namespace EcoDriver.API.Rewards.Domain.Models;
+﻿namespace EcoDriver.API.Loyalty.Domain.Models;
 
 public class Reward
 {
